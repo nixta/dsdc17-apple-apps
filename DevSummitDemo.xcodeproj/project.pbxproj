@@ -12,6 +12,7 @@
 		D96936391E4BEAD30066C499 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D96936371E4BEAD30066C499 /* Main.storyboard */; };
 		D969363B1E4BEAD30066C499 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D969363A1E4BEAD30066C499 /* Assets.xcassets */; };
 		D969363E1E4BEAD30066C499 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D969363C1E4BEAD30066C499 /* LaunchScreen.storyboard */; };
+		D96936461E4BEB570066C499 /* ArcGIS.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D96936451E4BEB570066C499 /* ArcGIS.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		D969363A1E4BEAD30066C499 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D969363D1E4BEAD30066C499 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D969363F1E4BEAD40066C499 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D96936451E4BEB570066C499 /* ArcGIS.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ArcGIS.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				D969363A1E4BEAD30066C499 /* Assets.xcassets */,
 				D969363C1E4BEAD30066C499 /* LaunchScreen.storyboard */,
 				D969363F1E4BEAD40066C499 /* Info.plist */,
+				D96936451E4BEB570066C499 /* ArcGIS.bundle */,
 			);
 			path = DevSummitDemo;
 			sourceTree = "<group>";
@@ -126,6 +129,7 @@
 			files = (
 				D969363E1E4BEAD30066C499 /* LaunchScreen.storyboard in Resources */,
 				D969363B1E4BEAD30066C499 /* Assets.xcassets in Resources */,
+				D96936461E4BEB570066C499 /* ArcGIS.bundle in Resources */,
 				D96936391E4BEAD30066C499 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,8 +266,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = J8UEUYLV27;
+				FRAMEWORK_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/iOS/Frameworks/Static";
 				INFOPLIST_FILE = DevSummitDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					ArcGIS,
+					"-l",
+					"c++",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.esri.geodev.DevSummitDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -275,8 +287,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = J8UEUYLV27;
+				FRAMEWORK_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/iOS/Frameworks/Static";
 				INFOPLIST_FILE = DevSummitDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					ArcGIS,
+					"-l",
+					"c++",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.esri.geodev.DevSummitDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
