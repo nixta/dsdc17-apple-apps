@@ -37,6 +37,7 @@ class ViewController: UIViewController, AGSGeoViewTouchDelegate, AGSCalloutDeleg
             }
             
             guard let result = results?.first, let embassy = result.geoElements.first as? AGSFeature else {
+                self.mapView.callout.dismiss()
                 return
             }
             
