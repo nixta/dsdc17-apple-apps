@@ -22,6 +22,8 @@ class ViewController: UIViewController {
         let embassies = AGSFeatureLayer(featureTable: embassiesTable)
         map.operationalLayers.add(embassies)
         
+        embassies.renderer = AGSSimpleRenderer(symbol: AGSSimpleMarkerSymbol(style: .circle, color: UIColor.orange.withAlphaComponent(0.75), size: 8))
+        
         mapView.map = map
     }
 
