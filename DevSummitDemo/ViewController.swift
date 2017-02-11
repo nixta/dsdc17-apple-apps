@@ -9,7 +9,7 @@
 import UIKit
 import ArcGIS
 
-class ViewController: UIViewController, AGSGeoViewTouchDelegate, AGSCalloutDelegate {
+class ViewController: UIViewController, AGSGeoViewTouchDelegate, AGSCalloutDelegate, AGSPopupsViewControllerDelegate {
 
     @IBOutlet weak var mapView: AGSMapView!
 
@@ -53,7 +53,12 @@ class ViewController: UIViewController, AGSGeoViewTouchDelegate, AGSCalloutDeleg
         if let embassy = callout.representedObject as? AGSFeature {
             let popupVC = AGSPopupsViewController(popups: [AGSPopup(geoElement: embassy)])
             self.present(popupVC, animated: true, completion: nil)
+            popupVC.delegate = self
         }
+    }
+    
+    func popupsViewControllerDidFinishViewingPopups(_ popupsViewController: AGSPopupsViewController) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
