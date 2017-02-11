@@ -9,7 +9,7 @@
 import UIKit
 import ArcGIS
 
-class ViewController: UIViewController, AGSGeoViewTouchDelegate {
+class ViewController: UIViewController, AGSGeoViewTouchDelegate, AGSCalloutDelegate {
 
     @IBOutlet weak var mapView: AGSMapView!
 
@@ -44,6 +44,15 @@ class ViewController: UIViewController, AGSGeoViewTouchDelegate {
             self.mapView.callout.detail = embassy.attributes["TELEPHONE"] as? String
             
             self.mapView.callout.show(for: embassy, tapLocation: mapPoint, animated: true)
+            
+            self.mapView.callout.delegate = self
+        }
+    }
+    
+    func didTapAccessoryButton(for callout: AGSCallout) {
+        if let embassy = callout.representedObject as? AGSFeature {
+            let popupVC = AGSPopupsViewController(popups: [AGSPopup(geoElement: embassy)])
+            self.present(popupVC, animated: true, completion: nil)
         }
     }
 }
