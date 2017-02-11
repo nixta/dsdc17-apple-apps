@@ -20,11 +20,27 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AfQ-i5-aVY" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="AfQ-i5-aVY" secondAttribute="trailing" id="1id-bM-hKb"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="AfQ-i5-aVY" secondAttribute="bottom" id="ZbE-Sn-WMy"/>
+                            <constraint firstItem="AfQ-i5-aVY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="eMv-4y-iwn"/>
+                            <constraint firstItem="AfQ-i5-aVY" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="sWb-5l-J8g"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="AfQ-i5-aVY" id="YJF-dx-3A1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="37.331334332833585"/>
         </scene>
     </scenes>
 </document>

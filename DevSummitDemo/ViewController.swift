@@ -11,9 +11,14 @@ import ArcGIS
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var mapView: AGSMapView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        let map = AGSMap(basemapType: .darkGrayCanvasVector, latitude: 38.913, longitude: -77.0499, levelOfDetail: 13)
+        
+        mapView.map = map
     }
 
 }
