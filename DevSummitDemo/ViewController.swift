@@ -16,13 +16,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let map = AGSMap(basemapType: .darkGrayCanvasVector, latitude: 38.913, longitude: -77.0499, levelOfDetail: 13)
-
-        let embassiesTable = AGSServiceFeatureTable(url: URL(string: "https://maps2.dcgis.dc.gov/dcgis/rest/services/DCGIS_DATA/Facility_and_Structure/MapServer/3")!)
-        let embassies = AGSFeatureLayer(featureTable: embassiesTable)
-        map.operationalLayers.add(embassies)
-        
-        embassies.renderer = AGSSimpleRenderer(symbol: AGSSimpleMarkerSymbol(style: .circle, color: UIColor.orange.withAlphaComponent(0.75), size: 8))
+        let map = AGSMap(url: URL(string: "https://geeknixta.maps.arcgis.com/home/item.html?id=09f0c109352f488eafc82ba4e089686d")!)
         
         mapView.map = map
     }
