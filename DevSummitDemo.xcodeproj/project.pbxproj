@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D925899A1E50D38A00FBF2EF /* ViewController+MapItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92589991E50D38A00FBF2EF /* ViewController+MapItem.swift */; };
+		D9501ACB1E50BED1003A3E99 /* MapItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9501ACA1E50BED1003A3E99 /* MapItemViewController.swift */; };
 		D96936341E4BEAD30066C499 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96936331E4BEAD30066C499 /* AppDelegate.swift */; };
 		D96936361E4BEAD30066C499 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96936351E4BEAD30066C499 /* ViewController.swift */; };
 		D96936391E4BEAD30066C499 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D96936371E4BEAD30066C499 /* Main.storyboard */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D92589991E50D38A00FBF2EF /* ViewController+MapItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+MapItem.swift"; sourceTree = "<group>"; };
+		D9501ACA1E50BED1003A3E99 /* MapItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapItemViewController.swift; sourceTree = "<group>"; };
 		D96936301E4BEAD30066C499 /* DevSummitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevSummitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D96936331E4BEAD30066C499 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D96936351E4BEAD30066C499 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +62,8 @@
 			children = (
 				D96936331E4BEAD30066C499 /* AppDelegate.swift */,
 				D96936351E4BEAD30066C499 /* ViewController.swift */,
+				D92589991E50D38A00FBF2EF /* ViewController+MapItem.swift */,
+				D9501ACA1E50BED1003A3E99 /* MapItemViewController.swift */,
 				D96936371E4BEAD30066C499 /* Main.storyboard */,
 				D969363A1E4BEAD30066C499 /* Assets.xcassets */,
 				D969363C1E4BEAD30066C499 /* LaunchScreen.storyboard */,
@@ -143,6 +149,8 @@
 			files = (
 				D96936361E4BEAD30066C499 /* ViewController.swift in Sources */,
 				D96936341E4BEAD30066C499 /* AppDelegate.swift in Sources */,
+				D925899A1E50D38A00FBF2EF /* ViewController+MapItem.swift in Sources */,
+				D9501ACB1E50BED1003A3E99 /* MapItemViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +330,7 @@
 				D96936441E4BEAD40066C499 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
