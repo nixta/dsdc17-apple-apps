@@ -25,6 +25,15 @@ class ViewController: UIViewController {
         embassies.renderer = AGSSimpleRenderer(symbol: AGSSimpleMarkerSymbol(style: .circle, color: UIColor.orange.withAlphaComponent(0.75), size: 8))
         
         mapView.map = map
+        
+        mapView.locationDisplay.autoPanMode = .recenter
+        mapView.locationDisplay.initialZoomScale = 50000
+        mapView.locationDisplay.start { (error) in
+            guard error == nil else {
+                print("Error starting location services! \(error)")
+                return
+            }
+        }
     }
 
 }

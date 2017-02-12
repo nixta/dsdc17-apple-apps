@@ -70,5 +70,7 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Need your location to get directions outta here!</string>
 </dict>
 </plist>
