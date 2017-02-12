@@ -9,7 +9,7 @@
 import UIKit
 import ArcGIS
 
-class ViewController: UIViewController, AGSGeoViewTouchDelegate, AGSCalloutDelegate, AGSPopupsViewControllerDelegate {
+class ViewController: UIViewController, AGSGeoViewTouchDelegate, AGSPopupsViewControllerDelegate {
 
     @IBOutlet weak var mapView: AGSMapView!
 
@@ -24,30 +24,17 @@ class ViewController: UIViewController, AGSGeoViewTouchDelegate, AGSCalloutDeleg
     }
 
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
-        mapView.identifyLayers(atScreenPoint: screenPoint, tolerance: 22, returnPopupsOnly: false) { (results, error) in
+        mapView.identifyLayers(atScreenPoint: screenPoint, tolerance: 22, returnPopupsOnly: false, maximumResultsPerLayer: 10) { (results, error) in
             guard error == nil else {
                 print("Error identifying the tap results! \(error!)")
                 return
             }
             
-            guard let result = results?.first, let embassy = result.geoElements.first as? AGSFeature else {
-                self.mapView.callout.dismiss()
+            guard let result = results?.first/*, result.popups.count > 0*/ else {
                 return
             }
             
-            self.mapView.callout.title = embassy.attributes["COUNTRY"] as? String
-            self.mapView.callout.detail = embassy.attributes["TELEPHONE"] as? String
-            
-            self.mapView.callout.show(for: embassy, tapLocation: mapPoint, animated: true)
-            
-            self.mapView.callout.delegate = self
-        }
-    }
-    
-    func didTapAccessoryButton(for callout: AGSCallout) {
-        if let embassy = callout.representedObject as? AGSFeature {
-            let popup = AGSPopup(geoElement: embassy, popupDefinition: embassy.featureTable?.featureLayer?.popupDefinition)
-            let popupVC = AGSPopupsViewController(popups: [popup])
+            let popupVC = AGSPopupsViewController(popups: result.popups)
             self.present(popupVC, animated: true, completion: nil)
             popupVC.delegate = self
         }
