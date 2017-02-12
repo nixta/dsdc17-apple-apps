@@ -11,6 +11,51 @@ import ArcGIS
 
 extension ViewController: AGSGeoViewTouchDelegate {
 
+    func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
+        
+        if let params = defaultRouteTaskParameters, let startPt = mapView.locationDisplay.mapLocation {
+            
+            // Set the start and end for the route.
+            let stops = [startPt,mapPoint].map { ptGeom in
+                return AGSStop(point: ptGeom)
+            }
+            stops.first?.name = "your location"
+            stops.last?.name = "your destination"
+            params.setStops(stops)
+            
+            // Solve the route.
+            routeTask.solveRoute(with: params) { (routeResult, error) in
+                guard error == nil else {
+                    print("Error solving route! \(error)")
+                    return
+                }
+                
+                if let route = routeResult?.routes.first {
+                    // Display the route.
+                    self.routeGraphics.graphics.removeAllObjects()
+                    self.routeGraphics.graphics.add(AGSGraphic(geometry: route.routeGeometry, symbol: nil, attributes: nil))
+                    
+                    if let newExtent = route.routeGeometry?.extent.toBuilder().expand(byFactor: 1.5).toGeometry() {
+                        // Zoom to the route.
+                        self.mapView.setViewpoint(AGSViewpoint(targetExtent: newExtent), completion: nil)
+                    }
+                    
+                    self.printRoute(route)
+                }
+            }
+            
+        }
+        
+    }
+    
+    func printRoute(_ route:AGSRoute) {
+        print("Route is \(AGSLinearUnit.meters().convert(route.totalLength, to: AGSLinearUnit.miles())) miles and will take \(route.totalTime) minutes")
+        
+        for maneuver in route.directionManeuvers {
+            print("\(maneuver.directionText)")
+        }
+    }
+
     func setupRouting() {
         
         // Handle map taps
@@ -53,35 +98,4 @@ extension ViewController: AGSGeoViewTouchDelegate {
         }
         
     }
-    
-    func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
-        
-        if let params = defaultRouteTaskParameters, let startPt = mapView.locationDisplay.mapLocation {
-            
-            // Set the start and end for the route.
-            params.setStops([startPt,mapPoint].map { AGSStop(point: $0) })
-            
-            // Solve the route.
-            routeTask.solveRoute(with: params) { (routeResult, error) in
-                guard error == nil else {
-                    print("Error solving route! \(error)")
-                    return
-                }
-                
-                if let route = routeResult?.routes.first {
-                    // Display the route.
-                    self.routeGraphics.graphics.removeAllObjects()
-                    self.routeGraphics.graphics.add(AGSGraphic(geometry: route.routeGeometry, symbol: nil, attributes: nil))
-                    
-                    if let newExtent = route.routeGeometry?.extent.toBuilder().expand(byFactor: 1.5).toGeometry() {
-                        // Zoom to the route.
-                        self.mapView.setViewpoint(AGSViewpoint(targetExtent: newExtent), completion: nil)
-                    }
-                }
-            }
-            
-        }
-        
-    }
-    
 }
