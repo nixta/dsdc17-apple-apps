@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let map = AGSMap(basemapType: .darkGrayCanvasVector, latitude: 38.913, longitude: -77.0499, levelOfDetail: 13)
+        let map = AGSMap(basemapType: .topographic, latitude: 38.913, longitude: -77.0499, levelOfDetail: 3)
         
         mapView.map = map
     }
