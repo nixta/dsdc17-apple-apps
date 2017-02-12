@@ -9,9 +9,11 @@
 import UIKit
 import ArcGIS
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UISearchBarDelegate {
 
     @IBOutlet weak var mapView: AGSMapView!
+    
+    var locator = AGSLocatorTask(url: URL(string:"https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer")!)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,5 +23,20 @@ class ViewController: UIViewController {
         mapView.map = map
     }
 
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let searchText = searchBar.text {
+            
+            locator.geocode(withSearchText: searchText) { (results, error) in
+                guard error == nil else {
+                    print("Error geocoding! \(error!)")
+                    return
+                }
+                
+                if let targetExtent = results?.first?.extent {
+                    self.mapView.setViewpoint(AGSViewpoint(targetExtent: targetExtent))
+                }
+            }
+        }
+    }
 }
 

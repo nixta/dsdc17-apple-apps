@@ -22,16 +22,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AfQ-i5-aVY" customClass="AGSMapView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="BIu-8G-MWz">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="zlq-x1-sDd"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="AfQ-i5-aVY" secondAttribute="trailing" id="1id-bM-hKb"/>
+                            <constraint firstItem="AfQ-i5-aVY" firstAttribute="top" secondItem="BIu-8G-MWz" secondAttribute="bottom" id="4NT-PW-tVj"/>
+                            <constraint firstAttribute="trailing" secondItem="BIu-8G-MWz" secondAttribute="trailing" id="62q-va-XuR"/>
+                            <constraint firstItem="BIu-8G-MWz" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="I0Z-yv-VyS"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="AfQ-i5-aVY" secondAttribute="bottom" id="ZbE-Sn-WMy"/>
+                            <constraint firstItem="BIu-8G-MWz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bzS-8W-gpJ"/>
                             <constraint firstItem="AfQ-i5-aVY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="eMv-4y-iwn"/>
-                            <constraint firstItem="AfQ-i5-aVY" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="sWb-5l-J8g"/>
                         </constraints>
                     </view>
                     <connections>
