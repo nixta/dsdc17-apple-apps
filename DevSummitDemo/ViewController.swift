@@ -46,7 +46,8 @@ class ViewController: UIViewController, AGSGeoViewTouchDelegate, AGSCalloutDeleg
     
     func didTapAccessoryButton(for callout: AGSCallout) {
         if let embassy = callout.representedObject as? AGSFeature {
-            let popupVC = AGSPopupsViewController(popups: [AGSPopup(geoElement: embassy)])
+            let popup = AGSPopup(geoElement: embassy, popupDefinition: embassy.featureTable?.featureLayer?.popupDefinition)
+            let popupVC = AGSPopupsViewController(popups: [popup])
             self.present(popupVC, animated: true, completion: nil)
             popupVC.delegate = self
         }
