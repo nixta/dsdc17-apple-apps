@@ -13,6 +13,7 @@
 		D969363B1E4BEAD30066C499 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D969363A1E4BEAD30066C499 /* Assets.xcassets */; };
 		D969363E1E4BEAD30066C499 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D969363C1E4BEAD30066C499 /* LaunchScreen.storyboard */; };
 		D96936461E4BEB570066C499 /* ArcGIS.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D96936451E4BEB570066C499 /* ArcGIS.bundle */; };
+		D9A5F78C1E5003BC008701A0 /* ViewController+Directions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A5F78B1E5003BC008701A0 /* ViewController+Directions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		D969363D1E4BEAD30066C499 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D969363F1E4BEAD40066C499 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D96936451E4BEB570066C499 /* ArcGIS.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ArcGIS.bundle; sourceTree = "<group>"; };
+		D9A5F78B1E5003BC008701A0 /* ViewController+Directions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Directions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				D96936331E4BEAD30066C499 /* AppDelegate.swift */,
 				D96936351E4BEAD30066C499 /* ViewController.swift */,
+				D9A5F78B1E5003BC008701A0 /* ViewController+Directions.swift */,
 				D96936371E4BEAD30066C499 /* Main.storyboard */,
 				D969363A1E4BEAD30066C499 /* Assets.xcassets */,
 				D969363C1E4BEAD30066C499 /* LaunchScreen.storyboard */,
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D96936361E4BEAD30066C499 /* ViewController.swift in Sources */,
+				D9A5F78C1E5003BC008701A0 /* ViewController+Directions.swift in Sources */,
 				D96936341E4BEAD30066C499 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,6 +326,7 @@
 				D96936441E4BEAD40066C499 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
